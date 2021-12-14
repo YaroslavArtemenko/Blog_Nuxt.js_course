@@ -17,3 +17,12 @@ export default {
   name: 'IndexPageAbout'
 }
 </script>
+
+<style lang="scss">
+.about {
+  text-align: center;
+  p {
+    margin-bottom: 10px;
+  }
+}
+</style>
