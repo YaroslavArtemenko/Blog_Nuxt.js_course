@@ -1,19 +1,13 @@
 <template>
-<div class="wrapper">
-  <Header></Header>
-</div>
+  <div class="wrapper">
+    <Header />
+    <nuxt />
+  </div>
 </template>
 
 <script>
-
-import Header from "~/components/system/Header";
-
+import Header from '~/components/system/Header.vue'
 export default {
-  name: "default",
-  components: {Header}
+  components: { Header }
 }
 </script>
-
-<style scoped>
-
-</style>

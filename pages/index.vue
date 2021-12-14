@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
-    <Tutorial></Tutorial>
   </div>
 </template>
 
@@ -9,3 +8,7 @@ export default {
   name: 'IndexPage'
 }
 </script>
+
+<style>
+
+</style>
