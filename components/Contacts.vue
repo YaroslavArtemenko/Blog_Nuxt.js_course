@@ -52,9 +52,9 @@ export default {
     onSubmit() {
       this.message = 'Submited!'
       //Reset
-      this.name = ''
-      this.email = ''
-      this.text = ''
+      this.user.name = ''
+      this.user.email = ''
+      this.user.text = ''
     }
   }
 }

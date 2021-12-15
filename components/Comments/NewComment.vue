@@ -49,8 +49,8 @@ export default {
     onSubmit() {
       this.message = 'Submited!'
       //Reset
-      this.name = ''
-      this.text = ''
+      this.comment.name = ''
+      this.comment.text = ''
     }
   }
 }
