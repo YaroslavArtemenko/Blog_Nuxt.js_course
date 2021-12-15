@@ -1,15 +1,20 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
     <Post :post="post"></Post>
+    <NewComment></NewComment>
   </div>
 </template>
 
 <script>
 import Post from "@/components/blog/Post";
+import NewComment from "@/components/Comments/NewComment";
 
 export default {
   name: "IndexPageBlogId",
-  components: {Post},
+  components: {
+    Post,
+    NewComment
+  },
   data() {
     return {
       post: {
