@@ -26,7 +26,7 @@ export default {
           id: 1,
           title: '1 post',
           descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          img: 'https://lawnuk.com/wp-content/uploads/2016/08/sprogs-dogs.jpg'
+          img: 'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'
         },
         {
           id: 2,
@@ -38,7 +38,7 @@ export default {
           id: 3,
           title: '3 post',
           descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          img: 'https://dsvf96nw4ftce.cloudfront.net/images/detailed/2/thundercap-calming-cap-action4.jpg'
+          img: 'https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=0d3f33fb6aa6e0154b7713a00454c83d'
         }
       ]
     }
