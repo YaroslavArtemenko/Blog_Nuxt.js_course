@@ -39,6 +39,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+.contact {
+  text-align: center;
+  background-color: #4f68f4;
+  color: #fff;
+  .contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+  }
+  .controls {
+    margin: 30px 0;
+  }
 
+}
 </style>
