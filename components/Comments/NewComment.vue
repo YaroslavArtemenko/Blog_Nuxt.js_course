@@ -9,7 +9,7 @@
 
         <!--      button-->
         <div class="controls">
-          <button class="btn btnPrimary"> Submit! </button>
+          <Button> Submit! </Button>
         </div>
 
       </form>
@@ -18,8 +18,11 @@
 </template>
 
 <script>
+import Button from "@/components/UI/Controls/Button";
+
 export default {
   name: "NewComment",
+  components: {Button},
   data () {
     return {
       comment: {
