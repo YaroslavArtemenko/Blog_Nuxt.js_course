@@ -49,6 +49,7 @@ export default {
   text-align: center;
   margin-bottom: 30px;
   img {
+    margin-bottom: 16px;
     max-width: 400px;
   }
   p {
