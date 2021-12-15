@@ -27,6 +27,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.posts__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 </style>

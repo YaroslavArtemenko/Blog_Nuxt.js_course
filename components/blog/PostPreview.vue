@@ -20,6 +20,19 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.post-preview {
+  width: 48%;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  img {
+    margin-bottom: 16px;
+  }
+  .post-content {
+    p {
+      color: #999999;
+    }
+  }
+}
 </style>
