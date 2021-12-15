@@ -12,7 +12,7 @@
 
 <!--      button-->
       <div class="controls">
-        <Button class="btnWhite"> Submit! </Button>
+        <AppButton class="btnWhite"> Submit! </AppButton>
       </div>
 
     </form>
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import Button from "@/components/UI/Controls/Button";
+import AppButton from "@/components/UI/Controls/Button";
 
 export default {
   name: "Contacts",
-  components: {Button},
+  components: {AppButton},
   data () {
     return {
       user: {

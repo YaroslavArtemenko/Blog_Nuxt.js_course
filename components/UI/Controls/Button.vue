@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: "AppButton",
   props: {
     btnClass: {
       type: String,

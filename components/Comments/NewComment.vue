@@ -9,7 +9,7 @@
 
         <!--      button-->
         <div class="controls">
-          <Button> Submit! </Button>
+          <AppButton> Submit! </AppButton>
         </div>
 
       </form>
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import Button from "@/components/UI/Controls/Button";
+import AppButton from "@/components/UI/Controls/Button";
 
 export default {
   name: "NewComment",
-  components: {Button},
+  components: {AppButton},
   data () {
     return {
       comment: {
