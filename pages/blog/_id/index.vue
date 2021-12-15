@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
     <Post :post="post"></Post>
+    <Comments :comments="comments"></Comments>
     <NewComment></NewComment>
   </div>
 </template>
@@ -8,11 +9,13 @@
 <script>
 import Post from "@/components/blog/Post";
 import NewComment from "@/components/Comments/NewComment";
+import Comments from "@/components/Comments/Comments";
 
 export default {
   name: "IndexPageBlogId",
   components: {
     Post,
+    Comments,
     NewComment
   },
   data() {
@@ -26,6 +29,16 @@ export default {
           '      consequat.',
         img: 'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'
       },
+      comments: [
+        {
+          name: 'Alex',
+          text: 'Lorem ipsum dolor sit amet, consectetur'
+        },
+        {
+          name: 'Yaro',
+          text: 'Lorem ipsum dolor sit amet, consectetur'
+        }
+      ]
     }
   }
 
@@ -37,17 +50,21 @@ export default {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .post-header {
   text-align: center;
   margin-bottom: 30px;
+
   img {
     margin-bottom: 16px;
     max-width: 400px;
   }
+
   p {
     color: #999999;
   }
 }
+
 .post-body {
   text-align: left;
 }

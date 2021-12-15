@@ -1,7 +1,6 @@
 <template>
   <section class="new-comment">
     <div class="container">
-      <h2 class="title"> New Comment! </h2>
       <form @submit.prevent="onSubmit" class="contact-form">
         <label>Name: </label>
         <input v-model="comment.name" type="text">
