@@ -40,6 +40,22 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.post {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.post-header {
+  text-align: center;
+  margin-bottom: 30px;
+  img {
+    max-width: 400px;
+  }
+  p {
+    color: #999999;
+  }
+}
+.post-body {
+  text-align: left;
+}
 </style>
