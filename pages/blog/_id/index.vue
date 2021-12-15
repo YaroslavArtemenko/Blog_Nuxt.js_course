@@ -1,28 +1,15 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
-    <section class="post">
-      <div class="container">
-
-        <!--        header-->
-        <div class="post-header">
-          <img :src="post.img" :alt="post.title">
-          <h1 class="title"> {{ post.title }} </h1>
-          <p>{{ post.descr }}</p>
-        </div>
-
-        <!--        body-->
-        <div class="post-body">
-          <p>{{ post.content }}</p>
-        </div>
-
-      </div>
-    </section>
+    <Post :post="post"></Post>
   </div>
 </template>
 
 <script>
+import Post from "@/components/blog/Post";
+
 export default {
   name: "IndexPageBlogId",
+  components: {Post},
   data() {
     return {
       post: {
