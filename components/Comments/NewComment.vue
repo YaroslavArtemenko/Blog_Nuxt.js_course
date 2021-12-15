@@ -2,14 +2,14 @@
   <section class="new-comment">
     <div class="container">
       <form @submit.prevent="onSubmit" class="contact-form">
-        <label>Name: </label>
-        <input v-model="comment.name" type="text">
-        <label>Text: </label>
-        <textarea v-model="comment.text"></textarea>
+        <!--        name-->
+        <AppInput v-model="comment.name"> Name:</AppInput>
+        <!--        textarea-->
+        <AppTextArea v-model="comment.text"> Text:</AppTextArea>
 
         <!--      button-->
         <div class="controls">
-          <AppButton> Submit! </AppButton>
+          <AppButton> Submit!</AppButton>
         </div>
 
       </form>
@@ -19,11 +19,17 @@
 
 <script>
 import AppButton from "@/components/UI/Controls/Button";
+import AppInput from "@/components/UI/Controls/Input";
+import AppTextArea from "@/components/UI/Controls/TextArea";
 
 export default {
   name: "NewComment",
-  components: {AppButton},
-  data () {
+  components: {
+    AppButton,
+    AppInput,
+    AppTextArea
+  },
+  data() {
     return {
       comment: {
         name: '',
@@ -32,7 +38,7 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       console.log(this.comment)
     }
   }
@@ -42,10 +48,12 @@ export default {
 <style lang="scss">
 .new-comment {
   text-align: center;
+
   .contact-form {
     max-width: 600px;
     margin: 30px auto;
   }
+
   .controls {
     margin: 30px 0;
   }
