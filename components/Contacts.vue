@@ -7,11 +7,12 @@
       <input v-model="user.name" type="text">
       <label>Email: </label>
       <input v-model="user.email" type="text">
+      <label>Text: </label>
       <textarea v-model="user.text"></textarea>
 
 <!--      button-->
       <div class="controls">
-        <button class="btn btnPrimary"> Submit! </button>
+        <button class="btn btnWhite"> Submit! </button>
       </div>
 
     </form>
@@ -44,6 +45,9 @@ export default {
   text-align: center;
   background-color: #4f68f4;
   color: #fff;
+  .title {
+    color: #fff;
+  }
   .contact-form {
     max-width: 600px;
     margin: 30px auto;
