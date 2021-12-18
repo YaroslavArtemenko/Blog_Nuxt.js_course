@@ -1,5 +1,8 @@
 <template>
-  <NewPostForm @submit="onSubmit"></NewPostForm>
+  <NewPostForm
+    :postEdit="post"
+    @submit="onSubmit"
+  ></NewPostForm>
 </template>
 
 <script>

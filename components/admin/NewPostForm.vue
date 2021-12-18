@@ -2,15 +2,15 @@
   <section class="new-post">
     <div class="container">
       <form @submit.prevent>
-        <AppInput v-model="post.title"> Title: </AppInput>
-        <AppInput v-model="post.descr"> Description: </AppInput>
-        <AppInput v-model="post.img"> Img Link: </AppInput>
-        <AppTextArea v-model="post.content"> Content: </AppTextArea>
+        <AppInput v-model="post.title"> Title:</AppInput>
+        <AppInput v-model="post.descr"> Description:</AppInput>
+        <AppInput v-model="post.img"> Img Link:</AppInput>
+        <AppTextArea v-model="post.content"> Content:</AppTextArea>
 
-<!--        buttons-->
+        <!--        buttons-->
         <div class="controls">
-          <AppButton class="btnDanger" @click="cancel"> Cancel </AppButton>
-          <AppButton @click="onSubmit"> Save </AppButton>
+          <AppButton class="btnDanger" @click="cancel"> Cancel</AppButton>
+          <AppButton @click="onSubmit"> Save</AppButton>
         </div>
       </form>
     </div>
@@ -20,9 +20,15 @@
 <script>
 export default {
   name: "NewPostForm",
-  data () {
+  props: {
+    postEdit: {
+      type: Object,
+      required: false
+    }
+  },
+  data() {
     return {
-      post: {
+      post: this.postEdit ? {...this.postEdit} : {
         title: '',
         descr: '',
         img: '',
@@ -31,10 +37,10 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       this.$emit('submit', this.post)
     },
-    cancel () {
+    cancel() {
       this.$router.push('/admin/')
     }
   }
