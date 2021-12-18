@@ -9,16 +9,12 @@
 
 <script>
 import Promo from "@/components/Promo";
-import Intro from "@/components/UI/Intro";
-import PostsList from "@/components/blog/PostsList";
 import Contacts from "@/components/Contacts";
 
 export default {
   name: 'IndexPage',
   components: {
     Promo,
-    Intro,
-    PostsList,
     Contacts
   },
   data() {

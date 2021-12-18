@@ -26,13 +26,8 @@
 
 <script>
 
-import Intro from "@/components/UI/Intro";
-
 export default {
   name: 'IndexPageAbout',
-  components: {
-    Intro
-  }
 }
 </script>
 

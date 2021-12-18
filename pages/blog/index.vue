@@ -6,15 +6,8 @@
 </template>
 
 <script>
-import Intro from "@/components/UI/Intro";
-import PostsList from "@/components/blog/PostsList";
-
 export default {
   name: 'IndexPage',
-  components: {
-    Intro,
-    PostsList
-  },
   data() {
     return {
       posts: [
