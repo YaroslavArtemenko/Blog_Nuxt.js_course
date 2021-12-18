@@ -1,7 +1,7 @@
 <template>
   <section class="new-post">
     <div class="container">
-      <form>
+      <form @submit.prevent>
         <AppInput v-model="post.title"> Title: </AppInput>
         <AppInput v-model="post.descr"> Description: </AppInput>
         <AppInput v-model="post.img"> Img Link: </AppInput>
@@ -9,8 +9,8 @@
 
 <!--        buttons-->
         <div class="controls">
-          <AppButton class="btnDanger"> Cancel </AppButton>
-          <AppButton> Save </AppButton>
+          <AppButton class="btnDanger" @click="cancel"> Cancel </AppButton>
+          <AppButton @click="onSubmit"> Save </AppButton>
         </div>
       </form>
     </div>
@@ -28,6 +28,14 @@ export default {
         img: '',
         content: ''
       }
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$emit('submit', this.post)
+    },
+    cancel () {
+      this.$router.push('/admin/')
     }
   }
 }
