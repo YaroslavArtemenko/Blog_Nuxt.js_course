@@ -8,6 +8,7 @@
 
 export default {
   name: 'IndexAdminPage',
+  layout: 'admin',
   data() {
     return {
       posts: [
