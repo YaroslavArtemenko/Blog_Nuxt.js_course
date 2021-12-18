@@ -1,7 +1,5 @@
 <template>
-  <div class="wrapper-content wrapper-content--fixed">
-    <PostsList :posts="posts"></PostsList>
-  </div>
+  <PostsList :posts="posts"></PostsList>
 </template>
 
 <script>
