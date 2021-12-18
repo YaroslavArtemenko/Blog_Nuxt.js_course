@@ -6,6 +6,12 @@
         <AppInput v-model="post.descr"> Description: </AppInput>
         <AppInput v-model="post.img"> Img Link: </AppInput>
         <AppTextArea v-model="post.content"> Content: </AppTextArea>
+
+<!--        buttons-->
+        <div class="controls">
+          <AppButton class="btnDanger"> Cancel </AppButton>
+          <AppButton> Save </AppButton>
+        </div>
       </form>
     </div>
   </section>
@@ -27,6 +33,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.controls {
+  text-align: center;
+  margin: 20px 0;
+}
 </style>
