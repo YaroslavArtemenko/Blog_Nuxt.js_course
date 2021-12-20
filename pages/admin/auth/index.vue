@@ -3,8 +3,8 @@
     <div class="container">
       <form @submit.prevent="onSubmit" class="auth__form">
 
-        <AppInput type="password" v-model="user.email"> Login: </AppInput>
-        <AppInput type="email" v-model="user.password"> Password: </AppInput>
+        <AppInput type="email" v-model="user.email"> Login: </AppInput>
+        <AppInput type="password" v-model="user.password"> Password: </AppInput>
 
         <div class="controls">
           <AppButton> Login! </AppButton>
@@ -25,6 +25,13 @@ export default {
         email: '',
         password: ''
       }
+    }
+  },
+  methods: {
+    onSubmit () {
+      //Reset
+      this.user.email = ''
+      this.user.password = ''
     }
   }
 }
