@@ -18,7 +18,6 @@
 <script>
 export default {
   name: "IndexAdminAuthPage",
-  layout: 'admin',
   data () {
     return {
       user: {
@@ -47,7 +46,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 40vh;
+  height: 70vh;
   input {
     min-width: 460px;
   }

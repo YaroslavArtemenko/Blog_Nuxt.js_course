@@ -1,4 +1,4 @@
 export default function (contex) {
   // If the user is not authenticated
-  console.log(contex)
+  console.log('auth')
 }
