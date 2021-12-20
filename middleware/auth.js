@@ -1,3 +1,4 @@
-export default function (context) {
-  console.log(context)
+export default function (contex) {
+  // If the user is not authenticated
+  console.log(contex)
 }
