@@ -5,6 +5,7 @@
       v-bind="$attrs"
       :value="value"
       :type="type"
+      :required="required"
       @input="$emit('input', $event.target.value)"
     >
   </div>
@@ -15,11 +16,15 @@ export default {
   props: {
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     type: {
       type: String,
       default: 'text'
+    },
+    required: {
+      type: Boolean,
+      default: true
     }
   }
 }
