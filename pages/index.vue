@@ -2,7 +2,7 @@
   <div class="wrapper-content wrapper-content--fixed">
     <Promo></Promo>
     <Intro title="My lasts posts: "></Intro>
-    <PostsList :posts="posts"></PostsList>
+    <PostsList :posts="postsLoaded"></PostsList>
     <Contacts></Contacts>
   </div>
 </template>
@@ -17,11 +17,11 @@ export default {
     Promo,
     Contacts
   },
-  asyncData () {
+  asyncData (contex) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({
-          posts: [
+          postsLoaded: [
             {
               id: 1,
               title: '1 post',
@@ -31,6 +31,12 @@ export default {
           ]
         })
       }, 1500)
+    })
+    .then(data => {
+      return data
+    })
+    .catch(e => {
+      contex.error(e)
     })
   },
 }
