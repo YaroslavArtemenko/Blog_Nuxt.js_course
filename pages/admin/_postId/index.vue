@@ -25,7 +25,7 @@ export default {
   methods: {
     onSubmit(post) {
       console.log('Post Editing!')
-      console.log(post)
+      this.$store.dispatch('editPost', post)
     }
   }
 }
