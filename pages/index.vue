@@ -18,7 +18,7 @@ export default {
     Promo,
     Contacts
   },
-  // asyncData (contex) {
+  // asyncData (context) {
   //   return new Promise((resolve, reject) => {
   //     setTimeout(() => {
   //       resolve({
@@ -37,7 +37,7 @@ export default {
   //     return data
   //   })
   //   .catch(e => {
-  //     contex.error(e)
+  //     context.error(e)
   //   })
   // },
   computed: {

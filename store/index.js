@@ -28,7 +28,7 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtServerInit({commit}, contex) {
+  nuxtServerInit({commit}, context) {
     return axios.get('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json')
       .then(res => {
         console.log(res)

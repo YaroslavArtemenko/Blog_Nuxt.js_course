@@ -13,14 +13,14 @@ export default {
   name: "IndexAdminPostIdPage",
   components: {NewPostForm},
   layout: 'admin',
-  asyncData(contex) {
-    return axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${contex.params.postId}.json`)
+  asyncData(context) {
+    return axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${context.params.postId}.json`)
       .then(res => {
         return {
-          post: {...res.data, id: contex.params.postId}
+          post: {...res.data, id: context.params.postId}
         }
       })
-      .catch(e => contex.error(e))
+      .catch(e => context.error(e))
   },
   methods: {
     onSubmit(post) {
