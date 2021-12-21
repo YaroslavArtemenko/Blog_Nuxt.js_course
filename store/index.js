@@ -9,8 +9,8 @@ export const mutations = {
 }
 
 export const actions = {
-  addPost ({commit}, payload) {
-
+  addPost ({commit}, post) {
+    console.log(post)
   }
 }
 
