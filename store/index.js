@@ -12,6 +12,15 @@ export const mutations = {
 }
 
 export const actions = {
+  nuxtServerInit({commit}, contex) {
+    return axios.get('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json')
+      .then(res => {
+        console.log(res)
+        // commit('addPost', { ...post, id: res.data.name })
+      })
+      .catch(e => console.log(e))
+  },
+
   addPost ({commit}, post) {
     // console.log(post)
     return axios.post('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json', post)
