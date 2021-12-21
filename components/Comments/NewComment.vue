@@ -26,6 +26,12 @@
 
 export default {
   name: "NewComment",
+  props: {
+    postId: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       message: null,

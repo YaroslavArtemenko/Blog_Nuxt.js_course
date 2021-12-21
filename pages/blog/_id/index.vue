@@ -2,7 +2,7 @@
   <div class="wrapper-content wrapper-content--fixed">
     <Post :post="post"></Post>
     <Comments :comments="comments"></Comments>
-    <NewComment></NewComment>
+    <NewComment :postId="$route.params.id"></NewComment>
   </div>
 </template>
 
