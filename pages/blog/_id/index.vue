@@ -2,6 +2,7 @@
   <div class="wrapper-content wrapper-content--fixed">
     <Post :post="post"></Post>
     <Comments :comments="comments"></Comments>
+    <p>{{ comments }}</p>
     <NewComment :postId="$route.params.id"></NewComment>
   </div>
 </template>
@@ -25,35 +26,24 @@ export default {
       axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${context.params.id}.json`),
       axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
     ])
+
+    let commentsArray = [],
+        commentsArrayRes = []
+
+    Object.keys(comments.data).forEach(key => {
+      commentsArray.push(comments.data[key])
+    })
+
+    for (let i=0; i < commentsArray.length; i++){
+      if (commentsArray[i].postId === context.params.id && commentsArray[i].publish === true) {
+        commentsArrayRes.push(commentsArray[i])
+      }
+    }
     return {
       post: post.data,
-      comments: comments.data
+      comments: commentsArrayRes
     }
   }
-  // data() {
-  //   return {
-  //     post: {
-  //       id: 1,
-  //       title: '1 post',
-  //       descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  //       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\n' +
-  //         '      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n' +
-  //         '      consequat.',
-  //       img: 'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'
-  //     },
-  //     comments: [
-  //       {
-  //         name: 'Alex',
-  //         text: 'Lorem ipsum dolor sit amet, consectetur'
-  //       },
-  //       {
-  //         name: 'Yaro',
-  //         text: 'Lorem ipsum dolor sit amet, consectetur'
-  //       }
-  //     ]
-  //   }
-  // }
-
 }
 </script>
 
