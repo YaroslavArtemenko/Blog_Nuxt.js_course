@@ -16,7 +16,8 @@ export const actions = {
     // console.log(post)
     return axios.post('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json', post)
       .then(res => {
-        commit('addPost', post)
+        // console.log(res)
+        commit('addPost', { ...post, id: res.data.name })
       })
       .catch(e => console.log(e))
   }
