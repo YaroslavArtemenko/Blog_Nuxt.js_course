@@ -2,7 +2,6 @@
   <div class="wrapper-content wrapper-content--fixed">
     <Post :post="post"></Post>
     <Comments :comments="comments"></Comments>
-    <p>{{ comments }}</p>
     <NewComment :postId="$route.params.id"></NewComment>
   </div>
 </template>
@@ -27,18 +26,20 @@ export default {
       axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
     ])
 
-    let commentsArray = [],
-        commentsArrayRes = []
+    // let commentsArray = [],
+    //     commentsArrayRes = []
+    //
+    // Object.keys(comments.data).forEach(key => {
+    //   commentsArray.push(comments.data[key])
+    // })
+    //
+    // for (let i=0; i < commentsArray.length; i++){
+    //   if (commentsArray[i].postId === context.params.id && commentsArray[i].publish === true) {
+    //     commentsArrayRes.push(commentsArray[i])
+    //   }
+    // }
 
-    Object.keys(comments.data).forEach(key => {
-      commentsArray.push(comments.data[key])
-    })
-
-    for (let i=0; i < commentsArray.length; i++){
-      if (commentsArray[i].postId === context.params.id && commentsArray[i].publish === true) {
-        commentsArrayRes.push(commentsArray[i])
-      }
-    }
+    let commentsArrayRes = Object.values(comments.data).filter(comment => (comment.postId === context.params.id && comment.publish))
     return {
       post: post.data,
       comments: commentsArrayRes
