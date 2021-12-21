@@ -16,7 +16,11 @@ export const actions = {
     return axios.get('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json')
       .then(res => {
         console.log(res)
-        // commit('addPost', { ...post, id: res.data.name })
+        const postsArray = []
+        for (let key in res.data) {
+          postsArray.push( { ...res.data[key], id: key } )
+        }
+        commit('setPosts', postsArray)
       })
       .catch(e => console.log(e))
   },
