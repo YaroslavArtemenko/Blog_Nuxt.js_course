@@ -10,6 +10,7 @@
 <script>
 import Promo from "@/components/Promo";
 import Contacts from "@/components/Contacts";
+import {getters} from "@/store";
 
 export default {
   name: 'IndexPage',
@@ -17,27 +18,32 @@ export default {
     Promo,
     Contacts
   },
-  asyncData (contex) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          postsLoaded: [
-            {
-              id: 1,
-              title: '1 post',
-              descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-              img: 'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'
-            }
-          ]
-        })
-      }, 1500)
-    })
-    .then(data => {
-      return data
-    })
-    .catch(e => {
-      contex.error(e)
-    })
-  },
+  // asyncData (contex) {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve({
+  //         postsLoaded: [
+  //           {
+  //             id: 1,
+  //             title: '1 post',
+  //             descr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  //             img: 'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'
+  //           }
+  //         ]
+  //       })
+  //     }, 1500)
+  //   })
+  //   .then(data => {
+  //     return data
+  //   })
+  //   .catch(e => {
+  //     contex.error(e)
+  //   })
+  // },
+  computed: {
+    postsLoaded () {
+      return this.$store.getters.getPostsLoaded
+    }
+  }
 }
 </script>
