@@ -40,7 +40,7 @@ export default {
       this.$store.dispatch('addComment', {
         postId: '',
         publish: false,
-        ...comment
+        ...this.comment
       })
         .then(() => {
           this.message = 'Submited!'
