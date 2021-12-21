@@ -2,7 +2,8 @@ import axios from 'axios'
 import post from "@/components/blog/Post";
 
 export const state = () => ({
-  postsLoaded: []
+  postsLoaded: [],
+  commentsLoaded: []
 })
 
 export const mutations = {
@@ -18,7 +19,12 @@ export const mutations = {
   editPost(state, postEdit) {
     const postIndex = state.postsLoaded.findIndex(post => post.id === postEdit.id)
     state.postsLoaded[postIndex] = postEdit
-  }
+  },
+
+  addComment(state, comment) {
+    console.log(comment)
+    state.commentsLoaded.push(comment)
+  },
 }
 
 export const actions = {
@@ -52,11 +58,20 @@ export const actions = {
         commit('editPost', post)
       })
       .catch(e => console.log(e))
+  },
+
+  addComment({commit}, comment) {
+    return axios.post(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`, comment)
+      .then(res => {
+        commit('addComment', {...comment, id: res.data.name})
+      })
+      .catch(e => console.log(e))
   }
 }
 
 export const getters = {
   getPostsLoaded(state) {
     return state.postsLoaded
-  }
+  },
+
 }
