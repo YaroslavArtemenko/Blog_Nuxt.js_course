@@ -1,11 +1,14 @@
 import axios from 'axios'
 
 export const state = () => ({
-
+  postsLoaded: []
 })
 
 export const mutations = {
-
+  addPost(state, post) {
+    console.log(post)
+    state.postsLoaded.push(post)
+  }
 }
 
 export const actions = {
