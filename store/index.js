@@ -1,10 +1,14 @@
 import axios from 'axios'
+import post from "@/components/blog/Post";
 
 export const state = () => ({
   postsLoaded: []
 })
 
 export const mutations = {
+  setPosts(state, posts) {
+    state.postsLoaded = posts
+  },
   addPost(state, post) {
     console.log(post)
     state.postsLoaded.push(post)
@@ -20,6 +24,7 @@ export const actions = {
         for (let key in res.data) {
           postsArray.push( { ...res.data[key], id: key } )
         }
+        //Res
         commit('setPosts', postsArray)
       })
       .catch(e => console.log(e))
@@ -37,5 +42,7 @@ export const actions = {
 }
 
 export const getters = {
-
+  getPostsLoaded (state) {
+    return state.postsLoaded
+  }
 }
