@@ -12,7 +12,7 @@
           <span> {{ comment.text }} </span>
         </td>
         <td>
-          <span v-if="comment.status" class="status true"> Publish </span>
+          <span v-if="comment.publish" class="status true"> Publish </span>
           <span v-else class="status false"> Hidden </span>
         </td>
         <td>
@@ -49,7 +49,7 @@ export default {
           const comment = res.data[key]
           commentsArray.push({...comment, id: key})
         })
-        console.log(commentsArray)
+        this.comments = commentsArray
       })
   },
   methods: {
