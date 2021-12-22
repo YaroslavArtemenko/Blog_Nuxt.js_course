@@ -3,7 +3,7 @@ import post from "@/components/blog/Post";
 
 export const state = () => ({
   postsLoaded: [],
-  commentsLoaded: []
+  token: null
 })
 
 export const mutations = {
@@ -21,10 +21,9 @@ export const mutations = {
     state.postsLoaded[postIndex] = postEdit
   },
 
-  addComment(state, comment) {
-    console.log(comment)
-    state.commentsLoaded.push(comment)
-  },
+  setToken(state, token) {
+    state.token = token
+  }
 }
 
 export const actions = {
@@ -49,6 +48,10 @@ export const actions = {
       password: authData.password,
       returnSecureToken: true
     })
+      .then(res => {
+        commit('setToken', res.data.idToken)
+      })
+      .catch(e => console.log(e))
   },
 
   addPost({commit}, post) {
@@ -71,9 +74,6 @@ export const actions = {
 
   addComment({commit}, comment) {
     return axios.post(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`, comment)
-      .then(res => {
-        commit('addComment', {...comment, id: res.data.name})
-      })
       .catch(e => console.log(e))
   }
 }
