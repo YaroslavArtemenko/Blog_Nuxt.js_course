@@ -56,9 +56,9 @@ export default {
   methods: {
     changeComment(comment) {
       comment.publish = !comment.publish
-      console.log(comment)
-      // axios
-      //   .put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${comment.id}.json`, comment)
+      // console.log(comment)
+      axios
+        .put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments/${comment.id}.json`, comment)
     },
     deleteComment(id) {
       console.log(`Delete Comment id - ${id}`)
