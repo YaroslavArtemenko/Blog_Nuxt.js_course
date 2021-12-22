@@ -41,19 +41,22 @@ export default {
       comments: []
     }
   },
-  created() {
-    axios
-      .get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
-      .then(res => {
-        let commentsArray = []
-        Object.keys(res.data).forEach(key => {
-          const comment = res.data[key]
-          commentsArray.push({...comment, id: key})
-        })
-        this.comments = commentsArray
-      })
+  mounted() {
+    this.loadComments()
   },
   methods: {
+    loadComments() {
+      axios
+        .get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
+        .then(res => {
+          let commentsArray = []
+          Object.keys(res.data).forEach(key => {
+            const comment = res.data[key]
+            commentsArray.push({...comment, id: key})
+          })
+          this.comments = commentsArray
+        })
+    },
     changeComment(comment) {
       comment.publish = !comment.publish
       // console.log(comment)
@@ -61,7 +64,11 @@ export default {
         .put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments/${comment.id}.json`, comment)
     },
     deleteComment(id) {
-      console.log(`Delete Comment id - ${id}`)
+      axios
+        .delete(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments/${id}.json`)
+        .then(res => {
+          this.loadComments()
+        })
     }
   }
 }
