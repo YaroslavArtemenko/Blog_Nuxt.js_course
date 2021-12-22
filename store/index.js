@@ -63,8 +63,8 @@ export const actions = {
       .catch(e => console.log(e))
   },
 
-  editPost({commit}, post) {
-    return axios.put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${post.id}.json`, post)
+  editPost({commit, state}, post) {
+    return axios.put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${post.id}.json?auth=${state.token}`, post)
       .then(res => {
         commit('editPost', post)
       })
