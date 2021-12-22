@@ -16,7 +16,7 @@
           <span v-else class="status false"> Hidden </span>
         </td>
         <td>
-          <span @click="changeComment(comment.id)" class="link"> Change Status </span>
+          <span @click="changeComment(comment)" class="link"> Change Status </span>
         </td>
         <td>
           <span @click="deleteComment(comment.id)" class="link"> Delete </span>
@@ -42,7 +42,8 @@ export default {
     }
   },
   created() {
-    axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
+    axios
+      .get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
       .then(res => {
         let commentsArray = []
         Object.keys(res.data).forEach(key => {
@@ -53,8 +54,11 @@ export default {
       })
   },
   methods: {
-    changeComment(id) {
-      console.log(`Change Comment id - ${id}`)
+    changeComment(comment) {
+      comment.publish = !comment.publish
+      console.log(comment)
+      // axios
+      //   .put(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${comment.id}.json`, comment)
     },
     deleteComment(id) {
       console.log(`Delete Comment id - ${id}`)
