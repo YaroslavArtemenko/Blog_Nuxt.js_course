@@ -1,8 +1,9 @@
 <template>
-  <CommentTable
-    :thead="['Name', 'Text', 'Status', 'Change Status', 'Delete']"
-  >
-    <tbody slot="tbody">
+  <no-ssr>
+    <CommentTable
+      :thead="['Name', 'Text', 'Status', 'Change Status', 'Delete']"
+    >
+      <tbody slot="tbody">
       <tr v-for="comment in comments" :key="comment.id">
         <td>
           <span> {{ comment.name }} </span>
@@ -21,11 +22,14 @@
           <span @click="deleteComment(comment.id)" class="link"> Delete </span>
         </td>
       </tr>
-    </tbody>
-  </CommentTable>
+      </tbody>
+    </CommentTable>
+  </no-ssr>
 </template>
 
 <script>
+import axios from "axios";
+
 import CommentTable from "@/components/admin/CommentTable";
 
 export default {
@@ -34,24 +38,22 @@ export default {
   layout: 'admin',
   data() {
     return {
-      comments: [
-        {
-          id: 1,
-          name: 'Alex',
-          text: 'Lorem ipsum dolor sit amet, consectetur',
-          status: true
-        },
-        {
-          id: 2,
-          name: 'Yaro',
-          text: 'Lorem ipsum dolor sit amet, consectetur',
-          status: false
-        }
-      ]
+      comments: []
     }
   },
+  created() {
+    axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
+      .then(res => {
+        let commentsArray = []
+        Object.keys(res.data).forEach(key => {
+          const comment = res.data[key]
+          commentsArray.push({...comment, id: key})
+        })
+        console.log(commentsArray)
+      })
+  },
   methods: {
-    changeComment (id) {
+    changeComment(id) {
       console.log(`Change Comment id - ${id}`)
     },
     deleteComment(id) {
