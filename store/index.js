@@ -42,6 +42,11 @@ export const actions = {
       .catch(e => console.log(e))
   },
 
+  authUser ({commit}, authData) {
+    const key = 'AIzaSyDCFJnkxojlCBUQPdWFsoXD2KZAiMitXsA'
+    return axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key}`)
+  },
+
   addPost({commit}, post) {
     // console.log(post)
     return axios.post('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json', post)
