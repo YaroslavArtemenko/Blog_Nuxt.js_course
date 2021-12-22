@@ -55,7 +55,6 @@ export const actions = {
   },
 
   addPost({commit}, post) {
-    // console.log(post)
     return axios.post('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json', post)
       .then(res => {
         // console.log(res)
@@ -83,4 +82,7 @@ export const getters = {
     return state.postsLoaded
   },
 
+  checkAuthUser(state) {
+    return state.token != null
+  }
 }
