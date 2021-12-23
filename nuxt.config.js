@@ -42,6 +42,15 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // ['@nuxtjs/google-analytics', {
+    //   id: 'UA-KEY'
+    // }],
+    // ['@nuxtjs/yandex-metrika', {
+    //   id: 'KEY',
+    //   webwisor: false, //too many resources
+    //   clickmap: true, //for cursor click
+    //   trackLinks: true, //track on which links user clicks
+    // }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
