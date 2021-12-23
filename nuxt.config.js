@@ -1,3 +1,4 @@
+import axios from "axios";
 import pkg from './package.json'
 
 export default {
@@ -59,5 +60,14 @@ export default {
       'vue',
       'axios'
     ]
+  },
+  generate: {
+    routes() {
+      return axios.get('https://my-api/users').then(res => {
+        return res.data.map(user => {
+          return '/users/' + user.id
+        })
+      })
+    }
   }
 }
