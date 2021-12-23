@@ -13,7 +13,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'yandex-verification', content: 'KEY_OR_SPECIAL_FILE_WITH_KEY_IN_HTML_IN_STATIC_DIRECTORY'},
+      { name: 'google-site-verification', content: 'KEY_OR_SPECIAL_FILE_WITH_KEY_IN_HTML_IN_STATIC_DIRECTORY'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
