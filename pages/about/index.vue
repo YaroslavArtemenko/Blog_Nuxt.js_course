@@ -28,6 +28,20 @@
 
 export default {
   name: 'IndexPageAbout',
+  head() {
+    let title = 'About my SSR Blog!',
+      descr = 'About my SSR Blog! With Nuxt.js',
+      type = 'site'
+    return {
+      title: title,
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: title },
+        { hid: 'description', name: 'description', content: descr },
+        { hid: 'og:description', name: 'og:description', content: descr },
+        { hid: 'og:type', name: 'og:type', content: type },
+      ]
+    }
+  },
 }
 </script>
 

@@ -20,11 +20,30 @@ export default {
     Comments,
     NewComment
   },
+  head() {
+    let title = this.post.title,
+      descr = this.post.descr,
+      img = `${this.post.img}`,  //url for site + img
+      type = 'article'
+
+    return {
+      title: title,
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: title },
+        { hid: 'description', name: 'description', content: descr },
+        { hid: 'og:description', name: 'og:description', content: descr },
+        { hid: 'og:type', name: 'og:type', content: type },
+        { hid: 'og:img', name: 'og:img', content: img },
+      ]
+    }
+  },
   async asyncData(context) {
     let [post, comments] = await Promise.all([
       axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts/${context.params.id}.json`),
       axios.get(`https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/comments.json`)
     ])
+
+    //FIRST METHOD
 
     // let commentsArray = [],
     //     commentsArrayRes = []
@@ -38,6 +57,8 @@ export default {
     //     commentsArrayRes.push(commentsArray[i])
     //   }
     // }
+
+    //SECOND METHOD
 
     let commentsArrayRes = Object.values(comments.data).filter(comment => (comment.postId === context.params.id && comment.publish))
     return {
