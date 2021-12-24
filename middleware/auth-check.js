@@ -1,3 +1,5 @@
 export default function (context) {
-  context.store.dispatch('initAuth')
+  if (process.client) {
+    context.store.dispatch('initAuth')
+  }
 }
