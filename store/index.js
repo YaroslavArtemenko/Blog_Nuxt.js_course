@@ -70,6 +70,7 @@ export const actions = {
 
   logoutUser({commit}) {
     commit('destroyToken')
+    localStorage.removeItem('token')
   },
 
   addPost({commit}, post) {
