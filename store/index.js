@@ -34,7 +34,6 @@ export const actions = {
   nuxtServerInit({commit}, context) {
     return axios.get('https://blog-nuxt-dbf4b-default-rtdb.firebaseio.com/posts.json')
       .then(res => {
-
         const postsArray = []
         for (let key in res.data) {
           postsArray.push({...res.data[key], id: key})
