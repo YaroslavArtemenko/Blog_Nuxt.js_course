@@ -55,9 +55,12 @@ export const actions = {
       .then(res => {
         let token = res.data.idToken
         commit('setToken', token)
+        localStorage.setItem('token', token)
       })
       .catch(e => console.log(e))
   },
+
+
 
   logoutUser({commit}) {
     commit('destroyToken')
