@@ -83,6 +83,7 @@ export const actions = {
   logoutUser({commit}) {
     commit('destroyToken')
     localStorage.removeItem('token')
+    jsCookie.remove('jwt')
   },
 
   addPost({commit}, post) {
